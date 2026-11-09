@@ -1,0 +1,195 @@
+---
+const navItems = [
+  { label: 'Beranda', href: '/' },
+  { label: 'Profil Pesantren', href: '/profil' },
+  { label: 'Program Pendidikan', href: '/program' },
+  { label: 'Agenda & Berita', href: '/berita' },
+  { label: 'Kontak', href: '/kontak' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="header" role="banner">
+  <div class="container">
+    <nav class="nav" role="navigation" aria-label="Menu utama">
+      <div class="nav-brand">
+        <a href="/" class="logo-link" aria-label="Beranda Pondok Pesantren Al-Mukhlis">
+          <img
+            src="/logo-64.png"
+            alt="Logo Pondok Pesantren Al-Mukhlis"
+            class="logo-circle"
+            width="48"
+            height="48"
+          />
+          <span class="logo-text">
+            <span class="logo-text-main">Al-Mukhlis</span>
+            <span class="logo-text-sub">Pondok Pesantren</span>
+          </span>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        type="button"
+        class="menu-toggle"
+        aria-expanded="false"
+        aria-controls="nav-menu"
+        aria-label="Toggle menu"
+      >
+        <svg class="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line class="menu-icon-line menu-icon-top" x1="3" y1="6" x2="21" y2="6" />
+          <line class="menu-icon-line menu-icon-middle" x1="3" y1="12" x2="21" y2="12" />
+          <line class="menu-icon-line menu-icon-bottom" x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+      </button>
+
+      <!-- Navigation Menu -->
+      <ul class="nav-menu" id="nav-menu">
+        {navItems.map((item) => (
+          <li class="nav-item">
+            <a
+              href={item.href}
+              class:list={['nav-link', { 'nav-link-active': currentPath === item.href }]}
+              aria-current={currentPath === item.href ? 'page' : undefined}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .header {
+    @apply bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm;
+  }
+
+  .nav {
+    @apply flex items-center justify-between gap-4;
+    min-height: 4rem;
+  }
+
+  .nav-brand {
+    @apply flex items-center;
+  }
+
+  .logo-link {
+    @apply flex items-center gap-3 no-underline text-neutral-charcoal;
+    transition: opacity var(--transition-fast);
+  }
+
+  .logo-link:hover {
+    opacity: 0.8;
+  }
+
+  .logo-text {
+    @apply flex flex-col;
+    line-height: 1.2;
+  }
+
+  .logo-text-main {
+    @apply font-bold text-lg text-brand-primary;
+  }
+
+  .logo-text-sub {
+    @apply text-xs text-gray-700;
+  }
+
+  /* Mobile Menu Toggle */
+  .menu-toggle {
+    @apply flex items-center justify-center bg-transparent border-none cursor-pointer p-2 text-neutral-charcoal;
+    transition: color var(--transition-fast);
+  }
+
+  .menu-toggle:hover {
+    @apply text-brand-primary;
+  }
+
+  .menu-icon-line {
+    transition: all var(--transition-base);
+    transform-origin: center;
+  }
+
+  .menu-toggle[aria-expanded="true"] .menu-icon-top {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  .menu-toggle[aria-expanded="true"] .menu-icon-middle {
+    opacity: 0;
+  }
+
+  .menu-toggle[aria-expanded="true"] .menu-icon-bottom {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  /* Navigation Menu */
+  .nav-menu {
+    @apply hidden list-none m-0 p-0 gap-2;
+  }
+
+  .nav-menu.is-open {
+    @apply flex flex-col absolute top-full left-0 right-0 bg-white border-b border-gray-200 p-4 shadow-md;
+  }
+
+  .nav-link {
+    @apply block px-4 py-3 no-underline text-neutral-charcoal font-medium rounded-md;
+    transition: all var(--transition-fast);
+  }
+
+  .nav-link:hover {
+    @apply bg-neutral-cream text-brand-primary;
+  }
+
+  .nav-link-active {
+    @apply text-brand-primary bg-neutral-cream;
+  }
+
+  /* Desktop Navigation */
+  @media (min-width: 768px) {
+    .menu-toggle {
+      @apply hidden;
+    }
+
+    .nav-menu {
+      @apply flex flex-row static shadow-none border-none p-0;
+    }
+
+    .nav-link {
+      @apply px-4 py-2;
+    }
+  }
+</style>
+
+<script>
+  // Mobile menu toggle
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navMenu = document.querySelector('.nav-menu');
+
+  if (menuToggle && navMenu) {
+    menuToggle.addEventListener('click', () => {
+      const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-expanded', String(!isExpanded));
+      navMenu.classList.toggle('is-open');
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (event) => {
+      const target = event.target as HTMLElement;
+      if (!target.closest('.nav')) {
+        menuToggle.setAttribute('aria-expanded', 'false');
+        navMenu.classList.remove('is-open');
+      }
+    });
+
+    // Close menu on escape key
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        menuToggle.setAttribute('aria-expanded', 'false');
+        navMenu.classList.remove('is-open');
+      }
+    });
+  }
+</script>

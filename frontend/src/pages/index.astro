@@ -1,0 +1,366 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+---
+
+<BaseLayout title="Beranda - Pondok Pesantren Al-Mukhlis">
+  <Header />
+  
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section class="hero section" style="background: linear-gradient(135deg, var(--color-brand-primary) 0%, var(--color-brand-primary-dark) 100%);">
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="hero-title">
+            Selamat Datang di<br />
+            Pondok Pesantren Al-Mukhlis
+          </h1>
+          <p class="hero-subtitle">
+            Membentuk generasi Qur'ani yang berakhlak mulia, cerdas, dan berdaya saing
+          </p>
+          <div class="hero-actions">
+            <a href="/profil" class="btn btn-primary">
+              Tentang Kami
+            </a>
+            <a href="/kontak" class="btn btn-secondary">
+              Hubungi Kami
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sambutan Singkat -->
+    <section class="section">
+      <div class="container">
+        <div class="content-grid">
+          <div class="content-text">
+            <h2 class="section-title">Pondok Pesantren Al-Mukhlis</h2>
+            <p class="lead">
+              <em>Catatan: Ini adalah konten contoh. Konten asli akan diisi oleh pengelola pesantren melalui CMS.</em>
+            </p>
+            <p>
+              Pondok Pesantren Al-Mukhlis berlokasi di Panyaungan, Bandung, Jawa Barat. 
+              Kami merupakan lembaga pendidikan Islam yang menyelenggarakan program pendidikan 
+              agama dan umum dengan landasan nilai-nilai Islami yang kuat.
+            </p>
+            <p>
+              Dengan menggabungkan kurikulum pesantren dan pendidikan formal, kami berupaya 
+              mencetak generasi yang tidak hanya menguasai ilmu agama tetapi juga memiliki 
+              kompetensi akademik yang unggul.
+            </p>
+            <a href="/profil" class="link-arrow">
+              Selengkapnya tentang kami
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M7 4l6 6-6 6" />
+              </svg>
+            </a>
+          </div>
+          <div class="content-image">
+            <div class="placeholder-image">
+              <svg width="100%" height="100%" viewBox="0 0 400 300">
+                <rect width="400" height="300" fill="var(--color-neutral-cream)" />
+                <text x="50%" y="50%" text-anchor="middle" fill="var(--color-neutral-gray-700)" font-size="18">
+                  Foto Pesantren
+                </text>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Program Unggulan -->
+    <section class="section" style="background-color: var(--color-neutral-cream);">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title text-center">Program Pendidikan</h2>
+          <p class="section-subtitle text-center">
+            Program pendidikan yang kami tawarkan (konten contoh)
+          </p>
+        </div>
+        <div class="cards">
+          <div class="card">
+            <div class="card-icon">🕌</div>
+            <h3 class="card-title">Tahfidz Al-Qur'an</h3>
+            <p class="card-text">
+              Program menghafal Al-Qur'an dengan metode yang terstruktur dan bimbingan intensif.
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-icon">📚</div>
+            <h3 class="card-title">Madrasah Diniyah</h3>
+            <p class="card-text">
+              Pembelajaran kitab kuning dan ilmu agama Islam secara mendalam.
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🎓</div>
+            <h3 class="card-title">Pendidikan Formal</h3>
+            <p class="card-text">
+              Pendidikan setara SMP dan SMA dengan kurikulum nasional terintegrasi.
+            </p>
+          </div>
+        </div>
+        <div class="text-center" style="margin-top: 2rem;">
+          <a href="/program" class="btn btn-outline">
+            Lihat Semua Program
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section">
+      <div class="container">
+        <div class="cta-box">
+          <h2 class="cta-title">Ingin Bergabung atau Mengetahui Lebih Lanjut?</h2>
+          <p class="cta-text">
+            Hubungi kami untuk informasi pendaftaran santri baru atau kunjungi langsung pesantren kami.
+          </p>
+          <a href="/kontak" class="btn btn-primary">
+            Hubungi Kami
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  /* Hero */
+  .hero {
+    color: var(--color-neutral-white);
+    padding: 4rem 0;
+  }
+
+  .hero-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    margin: 0 0 1rem 0;
+    line-height: 1.2;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1.125rem, 3vw, 1.5rem);
+    margin: 0 0 2rem 0;
+    opacity: 0.95;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Content Grid */
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  @media (min-width: 768px) {
+    .content-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+  }
+
+  .content-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    font-weight: 700;
+    color: var(--color-brand-primary);
+    margin: 0;
+  }
+
+  .lead {
+    font-size: 0.875rem;
+    color: var(--color-neutral-gray-700);
+    background-color: var(--color-neutral-cream);
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-md);
+    margin: 0;
+  }
+
+  .content-text p {
+    margin: 0;
+    line-height: 1.7;
+  }
+
+  .link-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-brand-primary);
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    transition: gap var(--transition-fast);
+  }
+
+  .link-arrow:hover {
+    gap: 0.75rem;
+  }
+
+  .placeholder-image {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+  }
+
+  /* Section Header */
+  .section-header {
+    margin-bottom: 3rem;
+  }
+
+  .section-subtitle {
+    font-size: 1.125rem;
+    color: var(--color-neutral-gray-700);
+    margin: 0.75rem 0 0 0;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  /* Cards */
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .cards {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .cards {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .card {
+    background-color: var(--color-neutral-white);
+    padding: 2rem 1.5rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    text-align: center;
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .card-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-brand-primary);
+    margin: 0 0 0.75rem 0;
+  }
+
+  .card-text {
+    color: var(--color-neutral-gray-700);
+    margin: 0;
+  }
+
+  /* CTA Box */
+  .cta-box {
+    background: linear-gradient(135deg, var(--color-brand-primary) 0%, var(--color-brand-secondary) 100%);
+    color: var(--color-neutral-white);
+    padding: 3rem 2rem;
+    border-radius: var(--radius-xl);
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .cta-title {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: 700;
+    margin: 0 0 1rem 0;
+  }
+
+  .cta-text {
+    font-size: 1.125rem;
+    margin: 0 0 1.5rem 0;
+    opacity: 0.95;
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all var(--transition-fast);
+    cursor: pointer;
+    border: 2px solid transparent;
+  }
+
+  .btn-primary {
+    background-color: var(--color-brand-primary);
+    color: var(--color-neutral-white);
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-brand-primary-dark);
+  }
+
+  .btn-secondary {
+    background-color: var(--color-neutral-white);
+    color: var(--color-brand-primary);
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--color-neutral-cream);
+  }
+
+  .btn-outline {
+    background-color: transparent;
+    color: var(--color-brand-primary);
+    border-color: var(--color-brand-primary);
+  }
+
+  .btn-outline:hover {
+    background-color: var(--color-brand-primary);
+    color: var(--color-neutral-white);
+  }
+
+  .cta-box .btn-primary {
+    background-color: var(--color-neutral-white);
+    color: var(--color-brand-primary);
+  }
+
+  .cta-box .btn-primary:hover {
+    background-color: var(--color-neutral-cream);
+  }
+</style>

@@ -1,0 +1,88 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+---
+
+<BaseLayout
+  title="Agenda & Berita - Pondok Pesantren Al-Mukhlis"
+  description="Berita terkini dan agenda kegiatan Pondok Pesantren Al-Mukhlis."
+>
+  <Header />
+  
+  <main id="main-content">
+    <section class="page-header">
+      <div class="container">
+        <h1 class="page-title">Agenda & Berita</h1>
+        <p class="page-subtitle">
+          Informasi terkini dan kegiatan pesantren
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="content-box">
+          <p class="notice">
+            <strong>Catatan:</strong> Ini adalah halaman placeholder. Pengumuman, agenda kegiatan, 
+            berita, dan galeri foto akan dikelola oleh pengelola pesantren melalui CMS Strapi.
+          </p>
+          
+          <h2>Pengumuman Terkini</h2>
+          <p>(Konten akan diisi melalui CMS)</p>
+          
+          <h2>Agenda Kegiatan</h2>
+          <p>(Konten akan diisi melalui CMS)</p>
+          
+          <h2>Berita & Artikel</h2>
+          <p>(Konten akan diisi melalui CMS)</p>
+          
+          <h2>Galeri Foto</h2>
+          <p>(Konten akan diisi melalui CMS)</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .page-header {
+    background: linear-gradient(135deg, var(--color-brand-primary) 0%, var(--color-brand-primary-dark) 100%);
+    color: var(--color-neutral-white);
+    padding: 3rem 0;
+    text-align: center;
+  }
+
+  .page-title {
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    font-weight: 700;
+    margin: 0 0 0.75rem 0;
+  }
+
+  .page-subtitle {
+    font-size: 1.125rem;
+    margin: 0;
+    opacity: 0.95;
+  }
+
+  .content-box {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .content-box h2 {
+    color: var(--color-brand-primary);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .notice {
+    background-color: var(--color-neutral-cream);
+    padding: 1rem 1.25rem;
+    border-radius: var(--radius-md);
+    border-left: 4px solid var(--color-brand-gold);
+    margin-bottom: 2rem;
+  }
+</style>

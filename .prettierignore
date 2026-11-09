@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Build outputs
+dist/
+build/
+.astro/
+.cache/
+.tmp/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Generated files
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# Data
+cms/data/
+cms/public/uploads/
